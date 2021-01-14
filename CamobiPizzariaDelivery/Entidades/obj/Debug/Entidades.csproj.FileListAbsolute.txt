@@ -4,3 +4,9 @@ C:\Users\guilh\OneDrive\Documentos\GitHub\C-Sharp\CamobiPizzariaDelivery\Entidad
 C:\Users\guilh\OneDrive\Documentos\GitHub\C-Sharp\CamobiPizzariaDelivery\Entidades\obj\Debug\Entidades.csproj.CoreCompileInputs.cache
 C:\Users\guilh\OneDrive\Documentos\GitHub\C-Sharp\CamobiPizzariaDelivery\Entidades\obj\Debug\Entidades.dll
 C:\Users\guilh\OneDrive\Documentos\GitHub\C-Sharp\CamobiPizzariaDelivery\Entidades\obj\Debug\Entidades.pdb
+C:\Users\Guilherme\Documents\GitHub\AulasUdemyCSharp\C-Sharp\CamobiPizzariaDelivery\Entidades\bin\Debug\Entidades.dll
+C:\Users\Guilherme\Documents\GitHub\AulasUdemyCSharp\C-Sharp\CamobiPizzariaDelivery\Entidades\bin\Debug\Entidades.pdb
+C:\Users\Guilherme\Documents\GitHub\AulasUdemyCSharp\C-Sharp\CamobiPizzariaDelivery\Entidades\obj\Debug\Entidades.csprojAssemblyReference.cache
+C:\Users\Guilherme\Documents\GitHub\AulasUdemyCSharp\C-Sharp\CamobiPizzariaDelivery\Entidades\obj\Debug\Entidades.csproj.CoreCompileInputs.cache
+C:\Users\Guilherme\Documents\GitHub\AulasUdemyCSharp\C-Sharp\CamobiPizzariaDelivery\Entidades\obj\Debug\Entidades.dll
+C:\Users\Guilherme\Documents\GitHub\AulasUdemyCSharp\C-Sharp\CamobiPizzariaDelivery\Entidades\obj\Debug\Entidades.pdb
