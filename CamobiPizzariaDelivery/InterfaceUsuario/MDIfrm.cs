@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using InterfaceUsuario.Log_in;
 
@@ -29,10 +22,19 @@ namespace InterfaceUsuario
                     break;
                 }              
             }
+
+            mnsStripPrincipal.Visible = false;
+           
             frmLogin login = new frmLogin();
             login.ShowDialog();
             if (!login.bFlagLogin) this.Close();
-            
+
+            mnsStripPrincipal.Visible = true;
+        }
+
+        private void sairToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

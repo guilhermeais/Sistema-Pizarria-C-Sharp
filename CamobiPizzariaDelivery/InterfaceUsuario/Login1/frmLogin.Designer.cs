@@ -109,6 +109,7 @@ namespace InterfaceUsuario.Log_in
             this.txtSenha.PasswordChar = '*';
             this.txtSenha.Size = new System.Drawing.Size(169, 24);
             this.txtSenha.TabIndex = 5;
+            this.txtSenha.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtSenha_KeyDown);
             // 
             // btnEntrar
             // 

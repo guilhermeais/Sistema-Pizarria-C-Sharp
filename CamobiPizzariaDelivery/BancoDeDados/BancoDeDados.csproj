@@ -89,6 +89,7 @@
   <ItemGroup>
     <Compile Include="ConexaoDB.cs" />
     <Compile Include="MYSqlConnection.cs" />
+    <Compile Include="Pessoas\TipoUsuarioBD.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Pessoas\UsuarioBD.cs" />
   </ItemGroup>

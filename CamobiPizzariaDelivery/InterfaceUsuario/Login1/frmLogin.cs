@@ -58,7 +58,18 @@ namespace InterfaceUsuario.Log_in
             }
             bFlagLogin = true;
 
+            Sessao.Usuario = new Entidades.Entidade(item.Codigo, item.Login);
+            Sessao.TipoUsuario = new TipoUsuarioNG().BuscarTipoUsuario(item.Codigo);
+
             this.Close();
+        }
+
+        private void txtSenha_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btnEntrar_Click(sender, e);
+            }
         }
     }
 }
