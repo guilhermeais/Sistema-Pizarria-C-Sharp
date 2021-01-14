@@ -48,6 +48,7 @@
     <Compile Include="Pessoas\Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Sistema\ComboBoxItemUsuario.cs" />
+    <Compile Include="Sistema\Sessao.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

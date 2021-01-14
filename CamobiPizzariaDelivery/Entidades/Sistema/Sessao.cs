@@ -11,8 +11,14 @@ namespace Entidades.Sistema
     {
         public static Entidade Usuario { get; set; }
         public static TipoUsuario TipoUsuario{ get; set; }
-        private Sessao Instance;
-        public static  GetInstance{
-            get{}
-    }
-}
+        private static Sessao Instance;
+        /*public static Sessao GetInstance
+        {
+            *//*get
+            {
+                if (Instance == null)
+                {
+                    Instance = new Sessao();
+                }
+            }*//*
+        }*/
