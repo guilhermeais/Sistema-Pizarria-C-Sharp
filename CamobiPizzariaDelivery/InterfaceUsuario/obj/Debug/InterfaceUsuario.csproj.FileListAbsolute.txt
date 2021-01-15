@@ -86,3 +86,5 @@ C:\Users\Guilherme\Documents\GitHub\AulasUdemyCSharp\C-Sharp\CamobiPizzariaDeliv
 C:\Users\Guilherme\Documents\GitHub\AulasUdemyCSharp\C-Sharp\CamobiPizzariaDelivery\InterfaceUsuario\obj\Debug\InterfaceUsuario.csproj.CopyComplete
 C:\Users\Guilherme\Documents\GitHub\AulasUdemyCSharp\C-Sharp\CamobiPizzariaDelivery\InterfaceUsuario\obj\Debug\InterfaceUsuario.exe
 C:\Users\Guilherme\Documents\GitHub\AulasUdemyCSharp\C-Sharp\CamobiPizzariaDelivery\InterfaceUsuario\obj\Debug\InterfaceUsuario.pdb
+C:\Users\Guilherme\Documents\GitHub\AulasUdemyCSharp\C-Sharp\CamobiPizzariaDelivery\InterfaceUsuario\obj\Debug\InterfaceUsuario.Pessoas.frmCadUsuarioAdd.resources
+C:\Users\Guilherme\Documents\GitHub\AulasUdemyCSharp\C-Sharp\CamobiPizzariaDelivery\InterfaceUsuario\obj\Debug\InterfaceUsuario.UserControls.ucStatus.resources

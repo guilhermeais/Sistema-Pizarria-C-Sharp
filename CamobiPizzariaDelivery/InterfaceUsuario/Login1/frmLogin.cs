@@ -23,7 +23,7 @@ namespace InterfaceUsuario.Log_in
         }
         private void CarregarUsuarios()
         {
-            var lista = new UsuarioNG().ListarUsuarios();
+            var lista = new UsuarioNG().ListarUsuariosAtivos();
             if (lista.Count > 0 )
             {
                 foreach (var i in lista)
@@ -31,6 +31,7 @@ namespace InterfaceUsuario.Log_in
                     cmbUsuarios.Items.Add(new ComboBoxItemUsuario(i.Login, i.Codigo, i.Senha));
                 }
             }
+            cmbUsuarios.SelectedIndex = 0;
         }
 
         private void btnSair_Click(object sender, EventArgs e)

@@ -36,5 +36,16 @@ namespace InterfaceUsuario
         {
             this.Close();
         }
+
+        private void AbrirFormularios(Form form)
+        {
+            form.WindowState = FormWindowState.Normal;
+            form.StartPosition = FormStartPosition.CenterParent
+        }
+
+        private void usuáriosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            
+        }
     }
 }

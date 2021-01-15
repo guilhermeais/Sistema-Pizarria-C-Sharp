@@ -1,10 +1,8 @@
 ﻿using BancoDeDados;
+using Entidades.Entidades;
+using Entidades.Enumeradores;
 using Entidades.Pessoas;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Negocio.Pessoas
 {
@@ -16,9 +14,13 @@ namespace Negocio.Pessoas
         {
             _bd = new UsuarioBD();
         }
-        public List<Usuario> ListarUsuarios()
+        public List<EntidadeViewPesquisa> ListarEntidasdessViewPesquisa(Status status)
         {
-            return _bd.ListarUsuarios();
+            return _bd.ListarEntidasdessViewPesquisa(status);
+        }
+        public List<Usuario> ListarUsuariosAtivos()
+        {
+            return _bd.ListarUsuariosAtivos();
         }
     }
 }

@@ -6,12 +6,59 @@ using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
 using Entidades.Pessoas;
 using Entidades.Enumeradores;
+using Entidades.Entidades;
 
 namespace BancoDeDados
 {
     public class UsuarioBD
     {
-        public List<Usuario> ListarUsuarios()
+        public List<EntidadeViewPesquisa> ListarEntidasdessViewPesquisa(Status status)
+        {
+            var listaEntidades = new List<EntidadeViewPesquisa>();
+            using (MySqlConnection conexao = ConexaoDB.getInstancia().getConexao())
+            {
+                try
+                {
+
+                    conexao.Open();
+                    MySqlCommand cmd = new MySqlCommand();
+                    cmd = conexao.CreateCommand();
+
+                    string query = @"SELECT codigo, nome AS descricao, situacao  
+                                        FROM usuario";
+                    if (status != Status.Todos)
+                        query += " WHERE situacao = @status;";
+
+                    cmd.CommandText = query;
+
+                    if (status != Status.Todos)             
+                    cmd.Parameters.AddWithValue("situacao", (int)status);
+
+                    MySqlDataReader rd = cmd.ExecuteReader();
+                    while (rd.Read())
+                    {
+                        EntidadeViewPesquisa oEntidade = new EntidadeViewPesquisa();
+                        oEntidade.Codigo = int.Parse(rd["codigo"].ToString()) ;
+                        oEntidade.Descricao = rd["descricao"].ToString();
+                        oEntidade.Status = (Status)Convert.ToInt16(rd["situacao"]);
+             
+
+                        listaEntidades.Add(oEntidade);
+                    }
+                }
+                catch (MySqlException mysqle)
+                {
+                    throw new System.Exception(mysqle.ToString());
+                }
+                finally
+                {
+                    conexao.Close();
+                }
+            }
+            return listaEntidades;
+        }
+
+        public List<Usuario> ListarUsuariosAtivos()
         {
             var listaUsuarios = new List<Usuario>();
             using (MySqlConnection conexao = ConexaoDB.getInstancia().getConexao())
@@ -29,7 +76,7 @@ namespace BancoDeDados
                     while (rd.Read())
                     {
                         Usuario oUsuario = new Usuario();
-                        oUsuario.Codigo = int.Parse(rd["codigo"].ToString()) ;
+                        oUsuario.Codigo = int.Parse(rd["codigo"].ToString());
                         oUsuario.TipoUsuario = new TipoUsuario(Convert.ToInt32(rd["codigo_tipo_usuario"]), string.Empty);
                         oUsuario.Nome = rd["nome"].ToString();
                         oUsuario.Login = rd["login"].ToString();
@@ -52,7 +99,7 @@ namespace BancoDeDados
             }
             return listaUsuarios;
         }
-	
-	}
+
+    }
     }
 

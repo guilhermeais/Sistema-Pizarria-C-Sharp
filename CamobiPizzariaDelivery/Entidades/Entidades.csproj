@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Entidade.cs" />
+    <Compile Include="Entidades\EntidadeViewPesquisa.cs" />
     <Compile Include="Enumeradores\Status.cs" />
     <Compile Include="IEntidade.cs" />
     <Compile Include="Pessoas\TipoUsuario.cs" />

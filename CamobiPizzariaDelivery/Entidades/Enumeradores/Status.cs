@@ -8,6 +8,8 @@ namespace Entidades.Enumeradores
 {
     public enum Status
     {
-        Ativo, Inativo
+        Ativo = 1, 
+        Inativo = 0, 
+        Todos = 2
     }
 }
