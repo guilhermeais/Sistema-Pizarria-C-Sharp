@@ -19,21 +19,26 @@ namespace InterfaceUsuario.Pessoas
             InitializeComponent();
         }
 
-        private void btnBscUsu_Click(object sender, EventArgs e)
+        private void btnBscTipoUsu_Click(object sender, EventArgs e)
         {
+        
 
         }
 
-        private void btnBscTipoUsu_Click(object sender, EventArgs e)
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnBscUsu_Click(object sender, EventArgs e)
         {
             var lista = new UsuarioNG().ListarEntidasdessViewPesquisa(Status.Todos);
-            
+
             if (lista.Count < 1)
             {
                 MessageBox.Show("Sem dados para serem exibidos!", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
-
         }
     }
 }

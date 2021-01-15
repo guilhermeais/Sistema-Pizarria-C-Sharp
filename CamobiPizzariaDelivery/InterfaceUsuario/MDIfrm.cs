@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 using InterfaceUsuario.Log_in;
+using InterfaceUsuario.Pessoas;
 
 namespace InterfaceUsuario
 {
@@ -40,12 +41,14 @@ namespace InterfaceUsuario
         private void AbrirFormularios(Form form)
         {
             form.WindowState = FormWindowState.Normal;
-            form.StartPosition = FormStartPosition.CenterParent
+            form.StartPosition = FormStartPosition.CenterParent;
+            form.MdiParent = this;
+            form.Show();
         }
 
         private void usuáriosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
+            AbrirFormularios(new frmCadUsuarioAdd());
         }
     }
 }
