@@ -1,4 +1,5 @@
 ﻿using Entidades.Enumeradores;
+using InterfaceUsuario.Pesquisas;
 using Negocio.Pessoas;
 using System;
 using System.Collections.Generic;
@@ -39,6 +40,9 @@ namespace InterfaceUsuario.Pessoas
                 MessageBox.Show("Sem dados para serem exibidos!", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
+            var frmPesquisa = new frmPesquisaGenerica("Listagem de Usuários", Status.Todos);
+            frmPesquisa.lista = lista;
+            frmPesquisa.ShowDialog();
         }
     }
 }
