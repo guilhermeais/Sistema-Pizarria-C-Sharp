@@ -30,14 +30,14 @@ namespace InterfaceUsuario.Pesquisas
         private void InitializeComponent()
         {
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.btnConfirmar = new System.Windows.Forms.Button();
             this.btnSair = new System.Windows.Forms.Button();
+            this.btnConfirmar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.txtBusca = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.rdbTodos = new System.Windows.Forms.RadioButton();
-            this.rdbAtivos = new System.Windows.Forms.RadioButton();
             this.rdbInativos = new System.Windows.Forms.RadioButton();
+            this.rdbAtivos = new System.Windows.Forms.RadioButton();
+            this.rdbTodos = new System.Windows.Forms.RadioButton();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.lvlListagem = new System.Windows.Forms.ListView();
             this.flowLayoutPanel1.SuspendLayout();
@@ -55,18 +55,6 @@ namespace InterfaceUsuario.Pesquisas
             this.flowLayoutPanel1.Size = new System.Drawing.Size(254, 51);
             this.flowLayoutPanel1.TabIndex = 0;
             // 
-            // btnConfirmar
-            // 
-            this.btnConfirmar.Image = global::InterfaceUsuario.Properties.Resources.confirmar;
-            this.btnConfirmar.Location = new System.Drawing.Point(35, 3);
-            this.btnConfirmar.Name = "btnConfirmar";
-            this.btnConfirmar.Size = new System.Drawing.Size(105, 45);
-            this.btnConfirmar.TabIndex = 0;
-            this.btnConfirmar.Text = "Confirmar";
-            this.btnConfirmar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnConfirmar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnConfirmar.UseVisualStyleBackColor = true;
-            // 
             // btnSair
             // 
             this.btnSair.Image = global::InterfaceUsuario.Properties.Resources.sair;
@@ -78,6 +66,20 @@ namespace InterfaceUsuario.Pesquisas
             this.btnSair.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnSair.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnSair.UseVisualStyleBackColor = true;
+            this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
+            // 
+            // btnConfirmar
+            // 
+            this.btnConfirmar.Image = global::InterfaceUsuario.Properties.Resources.confirmar;
+            this.btnConfirmar.Location = new System.Drawing.Point(35, 3);
+            this.btnConfirmar.Name = "btnConfirmar";
+            this.btnConfirmar.Size = new System.Drawing.Size(105, 45);
+            this.btnConfirmar.TabIndex = 0;
+            this.btnConfirmar.Text = "Confirmar";
+            this.btnConfirmar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnConfirmar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnConfirmar.UseVisualStyleBackColor = true;
+            this.btnConfirmar.Click += new System.EventHandler(this.btnConfirmar_Click);
             // 
             // label1
             // 
@@ -94,6 +96,7 @@ namespace InterfaceUsuario.Pesquisas
             this.txtBusca.Name = "txtBusca";
             this.txtBusca.Size = new System.Drawing.Size(469, 20);
             this.txtBusca.TabIndex = 2;
+            this.txtBusca.TextChanged += new System.EventHandler(this.txtBusca_TextChanged);
             // 
             // groupBox1
             // 
@@ -107,16 +110,17 @@ namespace InterfaceUsuario.Pesquisas
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Situação";
             // 
-            // rdbTodos
+            // rdbInativos
             // 
-            this.rdbTodos.AutoSize = true;
-            this.rdbTodos.Location = new System.Drawing.Point(6, 20);
-            this.rdbTodos.Name = "rdbTodos";
-            this.rdbTodos.Size = new System.Drawing.Size(55, 17);
-            this.rdbTodos.TabIndex = 0;
-            this.rdbTodos.TabStop = true;
-            this.rdbTodos.Text = "Todos";
-            this.rdbTodos.UseVisualStyleBackColor = true;
+            this.rdbInativos.AutoSize = true;
+            this.rdbInativos.Location = new System.Drawing.Point(355, 19);
+            this.rdbInativos.Name = "rdbInativos";
+            this.rdbInativos.Size = new System.Drawing.Size(107, 17);
+            this.rdbInativos.TabIndex = 2;
+            this.rdbInativos.TabStop = true;
+            this.rdbInativos.Text = "Somente Inativos";
+            this.rdbInativos.UseVisualStyleBackColor = true;
+            this.rdbInativos.CheckedChanged += new System.EventHandler(this.rdbInativos_CheckedChanged);
             // 
             // rdbAtivos
             // 
@@ -128,17 +132,19 @@ namespace InterfaceUsuario.Pesquisas
             this.rdbAtivos.TabStop = true;
             this.rdbAtivos.Text = "Somente Ativos";
             this.rdbAtivos.UseVisualStyleBackColor = true;
+            this.rdbAtivos.CheckedChanged += new System.EventHandler(this.rdbAtivos_CheckedChanged);
             // 
-            // rdbInativos
+            // rdbTodos
             // 
-            this.rdbInativos.AutoSize = true;
-            this.rdbInativos.Location = new System.Drawing.Point(355, 19);
-            this.rdbInativos.Name = "rdbInativos";
-            this.rdbInativos.Size = new System.Drawing.Size(107, 17);
-            this.rdbInativos.TabIndex = 2;
-            this.rdbInativos.TabStop = true;
-            this.rdbInativos.Text = "Somente Inativos";
-            this.rdbInativos.UseVisualStyleBackColor = true;
+            this.rdbTodos.AutoSize = true;
+            this.rdbTodos.Location = new System.Drawing.Point(6, 20);
+            this.rdbTodos.Name = "rdbTodos";
+            this.rdbTodos.Size = new System.Drawing.Size(55, 17);
+            this.rdbTodos.TabIndex = 0;
+            this.rdbTodos.TabStop = true;
+            this.rdbTodos.Text = "Todos";
+            this.rdbTodos.UseVisualStyleBackColor = true;
+            this.rdbTodos.CheckedChanged += new System.EventHandler(this.rdbTodos_CheckedChanged);
             // 
             // groupBox2
             // 
@@ -161,6 +167,7 @@ namespace InterfaceUsuario.Pesquisas
             this.lvlListagem.Size = new System.Drawing.Size(457, 280);
             this.lvlListagem.TabIndex = 0;
             this.lvlListagem.UseCompatibleStateImageBehavior = false;
+            this.lvlListagem.DoubleClick += new System.EventHandler(this.lvlListagem_DoubleClick);
             // 
             // frmPesquisaGenerica
             // 
@@ -178,6 +185,7 @@ namespace InterfaceUsuario.Pesquisas
             this.Name = "frmPesquisaGenerica";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Pesquisa";
             this.Load += new System.EventHandler(this.frmPesquisaGenerica_Load);
             this.flowLayoutPanel1.ResumeLayout(false);
