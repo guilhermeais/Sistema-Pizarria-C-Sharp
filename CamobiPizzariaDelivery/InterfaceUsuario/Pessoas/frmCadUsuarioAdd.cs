@@ -8,16 +8,19 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+using InterfaceUsuario.Modulos;
 using System.Windows.Forms;
 
 namespace InterfaceUsuario.Pessoas
 {
     public partial class frmCadUsuarioAdd : Form
     {
+        private bool Novo;
         public frmCadUsuarioAdd()
         {
             InitializeComponent();
+            MascaraCampoCodigo.AplicarEventos(txtCodUsu);
+            MascaraCampoCodigo.AplicarEventos(txtCodTipoUsu);
         }
 
         private void btnBscTipoUsu_Click(object sender, EventArgs e)
@@ -43,6 +46,78 @@ namespace InterfaceUsuario.Pessoas
             var frmPesquisa = new frmPesquisaGenerica("Listagem de Usuários", Status.Todos);
             frmPesquisa.lista = lista;
             frmPesquisa.ShowDialog();
+
+            var iRetorno = frmPesquisa.iRetorno;
+            if (iRetorno < 1) return;
+
+            txtCodUsu.Text = iRetorno.ToString();
+            txtCodUsu_Validating(txtCodUsu, new CancelEventArgs());
+            btnBscUsu.Focus();
+
+        }
+
+        private void txtCodUsu_Validating(object sender, CancelEventArgs e)
+        {
+            if (txtCodUsu.Text.Trim() == "") 
+                return;
+
+            var usu = new UsuarioNG().Buscar(int.Parse(txtCodUsu.Text.Trim()));
+            if(usu == null)
+            {
+                btnExluir.Enabled = false;
+                return;
+            }
+
+            Novo = false;
+            txtNomeUsu.Text = usu.Nome;
+            txtLoginUsu.Text = usu.Login;
+            txtSenhaUsu.Text = usu.Senha;
+            txtCodTipoUsu.Text = usu.TipoUsuario.Codigo.ToString();
+
+            txtCodTipoUsu_Validating(txtCodTipoUsu, new CancelEventArgs());
+            MascaraCampoCodigo.RetornarMascara(txtCodUsu, new EventArgs());
+            MascaraCampoCodigo.RetornarMascara(txtCodTipoUsu, new EventArgs());
+
+            ucStatus.IncialiarSituacao(usu.Status);
+            btnExluir.Enabled = true;
+
+        }
+
+        public void LimparCampos()
+        {
+
+        }
+
+        private void frmCadUsuarioAdd_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnExluir_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnConfirmar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtCodTipoUsu_Validating(object sender, CancelEventArgs e)
+        {
+            if (txtCodTipoUsu.Text.ToString() == "")
+            {
+                lblTipoUsuario.Text = "";
+                return;
+            }
+            var oTipoUsuario = new TipoUsuarioNG().Buscar(int.Parse(txtCodTipoUsu.Text.Trim()));
+            if(oTipoUsuario == null)
+            {
+                MessageBox.Show("Tipo de Usuário não encontrado", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtCodTipoUsu.Select();
+                return;
+            }
+            lblTipoUsuario.Text = oTipoUsuario.Descricao;
         }
     }
 }

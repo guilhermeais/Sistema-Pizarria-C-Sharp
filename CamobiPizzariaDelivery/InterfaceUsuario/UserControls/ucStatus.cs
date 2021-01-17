@@ -18,7 +18,7 @@ namespace InterfaceUsuario.UserControls
             IncialiarSituacao(Status.Ativo);
         }
 
-        private void IncialiarSituacao(Status status)
+        public void IncialiarSituacao(Status status)
         {
             if (DesignMode) return;
             _status = status;

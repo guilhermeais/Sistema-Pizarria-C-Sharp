@@ -59,6 +59,7 @@
       <DependentUpon>MDIfrm.cs</DependentUpon>
     </Compile>
     <Compile Include="Modulos\Funcoes.cs" />
+    <Compile Include="Modulos\MascaraCampoCodigo.cs" />
     <Compile Include="Pesquisas\frmPesquisaGenerica.cs">
       <SubType>Form</SubType>
     </Compile>

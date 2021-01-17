@@ -100,6 +100,49 @@ namespace BancoDeDados
             return listaUsuarios;
         }
 
+        public Usuario Buscar(int cod)
+        {
+            Usuario usu = new Usuario();
+            using (MySqlConnection conexao = ConexaoDB.getInstancia().getConexao())
+            {
+                try
+                {
+
+                    conexao.Open();
+                    MySqlCommand cmd = new MySqlCommand();
+                    cmd = conexao.CreateCommand();
+
+                    cmd.CommandText = "select * from usuario where codigo = @codigo";
+                    cmd.Parameters.AddWithValue("codigo", cod);
+
+                    MySqlDataReader rd = cmd.ExecuteReader();
+
+                    while (rd.Read())
+                    {
+                        
+                        usu.Codigo = int.Parse(rd["codigo"].ToString());
+                        usu.TipoUsuario = new TipoUsuario(Convert.ToInt32(rd["codigo_tipo_usuario"]), string.Empty);
+                        usu.Nome = rd["nome"].ToString();
+                        usu.Login = rd["login"].ToString();
+                        usu.Senha = rd["senha"].ToString();
+                        usu.Status = (Status)Convert.ToInt16(rd["situacao"]);
+                        usu.DtAlteracao = DateTime.Parse(rd["dt_alteracao"].ToString());
+                        usu.CodigoUsrAlteracao = int.Parse(rd["codigo_usr_alteracao"].ToString());
+
+                    }
+                }
+                catch (MySqlException mysqle)
+                {
+                    throw new System.Exception(mysqle.ToString());
+                }
+                finally
+                {
+                    conexao.Close();
+                }
+            }
+            return usu;
+        }
+
     }
     }
 

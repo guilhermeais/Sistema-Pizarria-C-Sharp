@@ -46,7 +46,7 @@ namespace InterfaceUsuario.Pessoas
             this.txtSenhaUsu = new System.Windows.Forms.TextBox();
             this.btnBscTipoUsu = new System.Windows.Forms.Button();
             this.btnBscUsu = new System.Windows.Forms.Button();
-            this.ucStatus1 = new InterfaceUsuario.UserControls.ucStatus();
+            this.ucStatus = new InterfaceUsuario.UserControls.ucStatus();
             this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -85,6 +85,7 @@ namespace InterfaceUsuario.Pessoas
             this.btnExluir.Text = "Excluir";
             this.btnExluir.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnExluir.UseVisualStyleBackColor = true;
+            this.btnExluir.Click += new System.EventHandler(this.btnExluir_Click);
             // 
             // btnConfirmar
             // 
@@ -97,6 +98,7 @@ namespace InterfaceUsuario.Pessoas
             this.btnConfirmar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnConfirmar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnConfirmar.UseVisualStyleBackColor = true;
+            this.btnConfirmar.Click += new System.EventHandler(this.btnConfirmar_Click);
             // 
             // label1
             // 
@@ -114,6 +116,7 @@ namespace InterfaceUsuario.Pessoas
             this.txtCodUsu.Name = "txtCodUsu";
             this.txtCodUsu.Size = new System.Drawing.Size(100, 20);
             this.txtCodUsu.TabIndex = 1;
+            this.txtCodUsu.Validating += new System.ComponentModel.CancelEventHandler(this.txtCodUsu_Validating);
             // 
             // label2
             // 
@@ -165,6 +168,7 @@ namespace InterfaceUsuario.Pessoas
             this.txtCodTipoUsu.Name = "txtCodTipoUsu";
             this.txtCodTipoUsu.Size = new System.Drawing.Size(100, 20);
             this.txtCodTipoUsu.TabIndex = 6;
+            this.txtCodTipoUsu.Validating += new System.ComponentModel.CancelEventHandler(this.txtCodTipoUsu_Validating);
             // 
             // label5
             // 
@@ -213,19 +217,19 @@ namespace InterfaceUsuario.Pessoas
             this.btnBscUsu.UseVisualStyleBackColor = true;
             this.btnBscUsu.Click += new System.EventHandler(this.btnBscUsu_Click);
             // 
-            // ucStatus1
+            // ucStatus
             // 
-            this.ucStatus1.Location = new System.Drawing.Point(12, 184);
-            this.ucStatus1.Name = "ucStatus1";
-            this.ucStatus1.Size = new System.Drawing.Size(199, 69);
-            this.ucStatus1.TabIndex = 11;
+            this.ucStatus.Location = new System.Drawing.Point(12, 184);
+            this.ucStatus.Name = "ucStatus";
+            this.ucStatus.Size = new System.Drawing.Size(199, 69);
+            this.ucStatus.TabIndex = 11;
             // 
             // frmCadUsuarioAdd
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(740, 327);
-            this.Controls.Add(this.ucStatus1);
+            this.Controls.Add(this.ucStatus);
             this.Controls.Add(this.lblTipoUsuario);
             this.Controls.Add(this.btnBscTipoUsu);
             this.Controls.Add(this.txtCodTipoUsu);
@@ -245,6 +249,7 @@ namespace InterfaceUsuario.Pessoas
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.Text = "Cadastro de Usuários";
+            this.Load += new System.EventHandler(this.frmCadUsuarioAdd_Load);
             this.flowLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -270,6 +275,6 @@ namespace InterfaceUsuario.Pessoas
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label lblTipoUsuario;
         private System.Windows.Forms.TextBox txtSenhaUsu;
-        private UserControls.ucStatus ucStatus1;
+        private UserControls.ucStatus ucStatus;
     }
 }
