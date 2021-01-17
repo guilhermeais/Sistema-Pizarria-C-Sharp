@@ -21,5 +21,10 @@ namespace InterfaceUsuario.Modulos
             }
         }
 
+        public static void SelecionarCampo(TextBox txtbox)
+        {
+            txtbox.Focus();
+            txtbox.Select();
+        }
     }
 }

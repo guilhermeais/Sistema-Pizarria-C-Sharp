@@ -7,11 +7,13 @@ using MySql.Data.MySqlClient;
 using Entidades.Pessoas;
 using Entidades.Enumeradores;
 using Entidades.Entidades;
+using BancoDeDados.Modulos;
 
 namespace BancoDeDados
 {
     public class UsuarioBD
     {
+        private readonly FuncoesBD FuncoesBD = new FuncoesBD();
         public List<EntidadeViewPesquisa> ListarEntidasdessViewPesquisa(Status status)
         {
             var listaEntidades = new List<EntidadeViewPesquisa>();
@@ -141,6 +143,11 @@ namespace BancoDeDados
                 }
             }
             return usu;
+        }
+
+        public int BuscarProximoCodigo()
+        {
+            return FuncoesBD.BuscaCodigo("SHOW TABLE STATUS LIKE 'usuario'");
         }
 
     }

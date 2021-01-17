@@ -31,6 +31,7 @@ namespace InterfaceUsuario.Pessoas
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
+            LimparCampos();
             this.Close();
         }
 
@@ -85,12 +86,22 @@ namespace InterfaceUsuario.Pessoas
 
         public void LimparCampos()
         {
-
+            txtCodUsu.Text = new UsuarioNG().BuscarProximoCodigo().ToString();
+            txtNomeUsu.Text = "";
+            txtLoginUsu.Text = "";
+            txtSenhaUsu.Text = "";
+            txtCodTipoUsu.Text = "";
+            btnExluir.Enabled = false;
+            ucStatus.IncialiarSituacao(Status.Ativo);
+            MascaraCampoCodigo.RetornarMascara(txtCodUsu, new EventArgs());
+            MascaraCampoCodigo.RetornarMascara(txtCodTipoUsu, new EventArgs());
+            Novo = true;
+            Funcoes.SelecionarCampo(txtNomeUsu);
         }
 
         private void frmCadUsuarioAdd_Load(object sender, EventArgs e)
         {
-
+            LimparCampos();
         }
 
         private void btnExluir_Click(object sender, EventArgs e)
