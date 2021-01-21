@@ -10,12 +10,15 @@ using System.Linq;
 using System.Text;
 using InterfaceUsuario.Modulos;
 using System.Windows.Forms;
+using Entidades.Pessoas;
+using Entidades.Sistema;
 
 namespace InterfaceUsuario.Pessoas
 {
     public partial class frmCadUsuarioAdd : Form
     {
         private bool Novo;
+
         public frmCadUsuarioAdd()
         {
             InitializeComponent();
@@ -109,9 +112,53 @@ namespace InterfaceUsuario.Pessoas
 
         }
 
+        private bool VerificarCampos()
+        {
+            if (txtNomeUsu.Text.Trim() == "")
+            {
+                MessageBox.Show("Você precisa informar o nome do usuário!", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+
+            if (txtLoginUsu.Text.Trim() == "")
+            {
+                MessageBox.Show("Você precisa informar o login do usuário!", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+
+            if (txtSenhaUsu.Text.Trim() == "")
+            {
+                MessageBox.Show("Você precisa informar a senha do usuário!", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+
+            if (txtCodTipoUsu.Text.Trim() == "")
+            {
+                MessageBox.Show("Você precisa informar o tipo do usuário!", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            return true;
+        }
+
         private void btnConfirmar_Click(object sender, EventArgs e)
         {
+            if (!VerificarCampos())
+                return;
+            var usuario = new Usuario();
+            usuario.Nome = txtNomeUsu.Text.Trim();
+            usuario.Login = txtLoginUsu.Text.Trim();
+            usuario.Senha = txtSenhaUsu.Text.Trim();
+            usuario.TipoUsuario.Codigo = int.Parse(txtCodUsu.Text.Trim());
+            usuario.Status = ucStatus._status;
+            usuario.CodigoUsrAlteracao = Sessao.Usuario.Codigo;
+            if (Novo)
+            {
 
+            }
+            else
+            {
+
+            }
         }
 
         private void txtCodTipoUsu_Validating(object sender, CancelEventArgs e)

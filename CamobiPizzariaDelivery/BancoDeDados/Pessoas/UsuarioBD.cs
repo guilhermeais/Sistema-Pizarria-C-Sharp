@@ -14,6 +14,46 @@ namespace BancoDeDados
     public class UsuarioBD
     {
         private readonly FuncoesBD FuncoesBD = new FuncoesBD();
+
+        public bool Inserir(Usuario usuario)
+        {
+            int valorRetorno = 0;
+            bool retorno = false;
+            using (MySqlConnection conexao = ConexaoDB.getInstancia().getConexao())
+            {
+                try
+                {
+
+                    conexao.Open();
+                    MySqlCommand cmd = new MySqlCommand();
+                    cmd = conexao.CreateCommand();
+
+                    cmd.CommandText = ("insert into usuario set codigo_tipo_usuario = " + usuario.TipoUsuario.Codigo + ", " +
+                                    "nome = " + usuario.Nome + ", " +
+                                    "login = " + usuario.Login + "," +
+                                    "senha = " + usuario.Senha + ", " +
+                                    "situacao = " + (int)usuario.Status + ", " +
+                                    "dt_alteracao =  now() , " +
+                                    "codigo_usr_alterao = " + usuario.CodigoUsrAlteracao + ")");
+
+                  valorRetorno = cmd.ExecuteNonQuery();
+                    if (valorRetorno < 1)
+                        retorno = false;
+                    else
+                        retorno = true;
+                }
+                catch (MySqlException mysqle)
+                {
+                    throw new System.Exception(mysqle.ToString());
+                }
+                finally
+                {
+                    conexao.Close();
+                }
+            }
+            return retorno;
+        }
+
         public List<EntidadeViewPesquisa> ListarEntidasdessViewPesquisa(Status status)
         {
             var listaEntidades = new List<EntidadeViewPesquisa>();
