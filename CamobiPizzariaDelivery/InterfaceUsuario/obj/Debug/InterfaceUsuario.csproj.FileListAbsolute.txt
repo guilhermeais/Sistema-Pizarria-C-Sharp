@@ -135,3 +135,4 @@ C:\Users\guilh\OneDrive\Documentos\GitHub\SistemaPizzaria\CamobiPizzariaDelivery
 C:\Users\guilh\OneDrive\Documentos\GitHub\SistemaPizzaria\CamobiPizzariaDelivery\InterfaceUsuario\obj\Debug\InterfaceUsuario.csproj.CopyComplete
 C:\Users\guilh\OneDrive\Documentos\GitHub\SistemaPizzaria\CamobiPizzariaDelivery\InterfaceUsuario\obj\Debug\InterfaceUsuario.exe
 C:\Users\guilh\OneDrive\Documentos\GitHub\SistemaPizzaria\CamobiPizzariaDelivery\InterfaceUsuario\obj\Debug\InterfaceUsuario.pdb
+C:\Users\Guilherme\Documents\GitHub\AulasUdemyCSharp\C-Sharp\CamobiPizzariaDelivery\InterfaceUsuario\obj\Debug\InterfaceUsuario.Pesquisas.frmPesquisaGenerica.resources

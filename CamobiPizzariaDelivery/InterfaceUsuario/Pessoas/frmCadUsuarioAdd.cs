@@ -28,8 +28,24 @@ namespace InterfaceUsuario.Pessoas
 
         private void btnBscTipoUsu_Click(object sender, EventArgs e)
         {
-        
+            var lista = new TipoUsuarioNG().ListarEntidasdessViewPesquisa();
 
+            if (lista.Count < 1)
+            {
+                MessageBox.Show("Sem dados para serem exibidos!", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            var frmPesquisa = new frmPesquisaGenerica("Listagem de Tipos de Usuários", Status.Todos);
+            frmPesquisa.lista = lista;
+            frmPesquisa.ShowDialog();
+
+            var iRetorno = frmPesquisa.iRetorno;
+            if (iRetorno < 1) return;
+
+            txtCodTipoUsu.Text = iRetorno.ToString();
+            txtCodTipoUsu_Validating(txtCodTipoUsu, new CancelEventArgs());
+            MascaraCampoCodigo.RetornarMascara(txtCodTipoUsu, new EventArgs());
+            btnBscTipoUsu.Focus();
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
