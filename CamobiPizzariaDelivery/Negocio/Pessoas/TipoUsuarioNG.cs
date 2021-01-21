@@ -1,5 +1,7 @@
 ﻿using BancoDeDados.Pessoas;
+using Entidades.Entidades;
 using Entidades.Pessoas;
+using System.Collections.Generic;
 
 namespace Negocio.Pessoas
 {
@@ -12,7 +14,12 @@ namespace Negocio.Pessoas
             _bd = new TipoUsuarioBD();
         }
 
-        public TipoUsuario BuscarTipoUsuario(int codigo)
+        public List<EntidadeViewPesquisa> ListarEntidasdessViewPesquisa()
+        {
+            return _bd.ListarEntidasdessViewPesquisa();
+        }
+
+            public TipoUsuario BuscarTipoUsuario(int codigo)
         {
             return _bd.BuscarTipoUsuario(codigo);
         }
