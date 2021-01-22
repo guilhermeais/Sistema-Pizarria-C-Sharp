@@ -110,6 +110,7 @@ namespace InterfaceUsuario.Pessoas
             txtLoginUsu.Text = "";
             txtSenhaUsu.Text = "";
             txtCodTipoUsu.Text = "";
+            lblTipoUsuario.Text = "";
             btnExluir.Enabled = false;
             ucStatus.IncialiarSituacao(Status.Ativo);
             MascaraCampoCodigo.RetornarMascara(txtCodUsu, new EventArgs());
@@ -161,6 +162,7 @@ namespace InterfaceUsuario.Pessoas
             if (!VerificarCampos())
                 return;
             var usuario = new Usuario();
+            var usuarioNG = new UsuarioNG();
             usuario.Nome = txtNomeUsu.Text.Trim();
             usuario.Login = txtLoginUsu.Text.Trim();
             usuario.Senha = txtSenhaUsu.Text.Trim();
@@ -169,7 +171,15 @@ namespace InterfaceUsuario.Pessoas
             usuario.CodigoUsrAlteracao = Sessao.Usuario.Codigo;
             if (Novo)
             {
-
+               if (usuarioNG.Inserir(usuario))
+                {
+                    MessageBox.Show("Usuário cadastrado com sucesso!",this.Text ,MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    LimparCampos();
+                }
+                else
+                {
+                    MessageBox.Show("Falha ao inserir o usuário! Tente novamente", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
             else
             {

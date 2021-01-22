@@ -17,7 +17,7 @@ namespace BancoDeDados
 
         public bool Inserir(Usuario usuario)
         {
-            int valorRetorno = 0;
+            int valorRetorno;
             bool retorno = false;
             using (MySqlConnection conexao = ConexaoDB.getInstancia().getConexao())
             {
@@ -29,12 +29,12 @@ namespace BancoDeDados
                     cmd = conexao.CreateCommand();
 
                     cmd.CommandText = ("insert into usuario set codigo_tipo_usuario = " + usuario.TipoUsuario.Codigo + ", " +
-                                    "nome = " + usuario.Nome + ", " +
-                                    "login = " + usuario.Login + "," +
-                                    "senha = " + usuario.Senha + ", " +
+                                    "nome = '" + usuario.Nome + "', " +
+                                    "login = '" + usuario.Login + "'," +
+                                    "senha = '" + usuario.Senha + "', " +
                                     "situacao = " + (int)usuario.Status + ", " +
                                     "dt_alteracao =  now() , " +
-                                    "codigo_usr_alterao = " + usuario.CodigoUsrAlteracao + ")");
+                                    "codigo_usr_alteracao = " + usuario.CodigoUsrAlteracao);
 
                   valorRetorno = cmd.ExecuteNonQuery();
                     if (valorRetorno < 1)

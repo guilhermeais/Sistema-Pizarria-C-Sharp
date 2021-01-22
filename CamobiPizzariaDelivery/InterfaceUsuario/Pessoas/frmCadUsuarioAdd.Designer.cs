@@ -194,6 +194,7 @@ namespace InterfaceUsuario.Pessoas
             this.txtSenhaUsu.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.txtSenhaUsu.Location = new System.Drawing.Point(443, 77);
             this.txtSenhaUsu.Name = "txtSenhaUsu";
+            this.txtSenhaUsu.PasswordChar = '*';
             this.txtSenhaUsu.Size = new System.Drawing.Size(285, 20);
             this.txtSenhaUsu.TabIndex = 5;
             // 
